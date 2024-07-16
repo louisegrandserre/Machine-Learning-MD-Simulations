@@ -9,4 +9,4 @@ In this directory, a tutorial is provided for calculating phonon modes using VAS
    Perform Density Functional Theory (DFT) calculations using VASP with the provided INCAR file. Adjust parameters as necessary for your specific system and calculation requirements.
 
 3. **Analyze Phonon Modes:**
-   Deduce phonon modes and analyze the phonon spectrum based on the results obtained from the DFT calculations with the calcul-phonon_modes.py script.
+   Deduce phonon modes and analyze the phonon spectrum based on the results obtained from the DFT calculations with the calcul_phonon_modes.py script.
