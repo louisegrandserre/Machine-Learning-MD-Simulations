@@ -18,4 +18,4 @@ This directory contains scripts and files for utilizing DeePMD (Deep Potential M
 - Script to compute Root Mean Squared Error (RMSE) loss during training steps.
 
 ### `phonon/` Directory:
-- Contains a script to calculate phonon Density of States (DOS) and band structures. `calcul_phonon_modes`: Script using Phonolammps and Phonopy to compute phonon modes.
+- Contains a script to calculate phonon Density of States (DOS) and band structures: `calcul_phonon_modes`, using Phonolammps and Phonopy.
