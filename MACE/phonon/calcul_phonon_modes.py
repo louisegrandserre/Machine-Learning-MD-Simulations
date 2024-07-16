@@ -1,4 +1,5 @@
 #https://jageo.github.io/TutorialAtomate2Forcefields/phonon.html
+#Script to plot phonon DOS and band structures for VASP, MACE-MP-0 and CHGNET using Atomate2
 from atomate2.forcefields.flows.phonons import PhononMaker
 from pymatgen.core.structure import Structure
 import atomate2.forcefields.jobs as ff_jobs
