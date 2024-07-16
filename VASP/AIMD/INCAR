@@ -1,0 +1,27 @@
+! ab initio
+ISMEAR = 0        ! For Gaussian smearing
+SIGMA  = 0.1      ! smearing in eV
+ISTART = 2  	! 2 FOR restart
+
+LREAL  = Auto     ! automatic projection operators in real space
+NELMIN = 4
+IALGO   = 48 ! RMM-DIIS for electronic relaxation
+PREC   = Normal     ! precision
+ISYM   = 0        ! no symmetry imposed
+ENCUT = 600       ! energy cut-off
+LWAVE = .True.
+IWAVPR = 11
+
+! MD
+IBRION = 0        ! for Molecular Dynamics (treat ionic dgr of freedom)
+NSW    = 800       ! no of ionic steps, for 3ps
+POTIM  = 0.5      ! MD time step in fs
+EDIFF  = 1E-05  
+MDALGO = 2        ! Nosé-Hoover thermostat
+SMASS  = 0      ! Nosé mass, canonical ensemble
+NWRITE = 1
+
+TEBEG  = 350     ! temperature at beginning (K)
+TEEND  = 350     ! temperature at end
+NPAR = 4
+LCHARG = .False.

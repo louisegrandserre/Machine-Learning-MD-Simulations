@@ -1,0 +1,84 @@
+
+##--------------- INITIALIZATION-------------------------------
+
+units          real
+dimension      3
+boundary       p p p
+atom_style     full		#molecule ID + charge
+
+##---------------ATOM DEFINITION------------------------------
+
+read_data 	H2O.data
+
+mass 		1 	15.9994 	# O
+mass 		2 	1.008	 	# H
+
+newton on
+
+variable cut equal "lx/2"
+
+# ---------- Define Interatomic Potential --------------------- 
+#SPC/E water potential
+
+pair_style      lj/cut/coul/long 9 9
+kspace_style    ewald 1.0e-4
+
+#pair_coeff     1 1 0.15535 3.5533
+pair_coeff      1 1 0.15535 3.166
+pair_coeff      * 2 0.00000 0.0000
+bond_style      harmonic
+angle_style     harmonic
+dihedral_style  none
+improper_style  none
+bond_coeff      1 100.00   1.000
+angle_coeff     1 100.00 109.47
+special_bonds   lj/coul 0.0 0.0 0.5
+fix             RigidOHBonds all shake 0.0001 20 0 b 1 a 1
+
+
+# ---------- Define Neighbor List Paramters --------------------- 
+
+neighbor 	0.3 bin 		
+neigh_modify 	every 1 delay 0 check yes one 3000
+
+
+##--------------- SETTINGS-------------------------------------
+
+
+#Thermalization
+velocity       	all create 298.00 4928459 rot yes mom yes dist gaussian
+fix 	  	thermal all nve/limit 0.05
+fix 	       	11 all langevin 298.0 298.0 1000.0 48279
+
+timestep       1.0				#fs
+
+
+# Initialization 
+
+thermo_style   one
+thermo         1000
+dump 	      dep1 all custom 1000 dump_thermal id type x y z
+run            200000					#200 ps
+unfix thermal
+unfix 11
+undump dep1
+
+
+
+# NVT without restraints
+
+fix 	  	nvt all nve
+fix 	       	12 all langevin 298.0 298.0 1000.0 48279
+
+# Output
+thermo_style  one
+thermo        1000
+dump 	      dep2 all custom 1000 dump_nvt id type x y z
+compute       myRDF all rdf 1000 1 1 1 2
+fix 	      1 all ave/time 1000 1 1000 c_myRDF[*] file tmp.rdf mode vector
+run            500000					# 500 ps
+
+write_restart   restart.Water.NVELan
+
+
+
