@@ -1,6 +1,6 @@
 # MD simulation techniques
 
-This repository contains scripts and codes developed during my internship in Prof. Kirk H. Bevan's group at McGill University for various machine learning-based molecular dynamics (MD) techniques, including VASP, LAMMPS, MACE, and DeePMD.
+This repository contains scripts and codes developed during my internship in Prof. Kirk H. Bevan's group at McGill University for various molecular dynamics (MD) techniques, including VASP, LAMMPS, MACE-MP-0, and DeePMD.
 
 ## Structure
 
@@ -9,7 +9,7 @@ Each directory corresponds to a specific machine learning MD technique:
 - `VASP/`: Scripts and input files related to simulations using VASP.
 - `LAMMPS/`: Code snippets and parameter files for LAMMPS simulations.
 - `DeePMD/`: Implementations and examples using DeePMD for machine learning MD simulations.
-- `MACE/`: Scripts and notebooks for utilizing MACE (Machine Learning Atomic Cluster Expansion).
+- `MACE/`: Scripts and notebooks for utilizing MACE-MP-0 (Machine Learning Atomic Cluster Expansion).
 
 I have worked on Radial Distribution Functions (RDF) and phonon modes, so each section will include a dedicated folder for these calculations.
 
