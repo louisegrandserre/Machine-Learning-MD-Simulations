@@ -15,4 +15,4 @@ I have worked on Radial Distribution Functions (RDF) and phonon modes, so each s
 
 ## Usage
 
-Feel free to explore each directory for detailed instructions on running simulations and analyzing results specific to each machine learning MD technique.
+Feel free to explore each directory for detailed instructions on running simulations and analyzing results specific to each MD technique.
